@@ -1,331 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Empowering Urban Children</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #e0f7fa; /* Light Blue */
-        }
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 16px;
-        }
-        header {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: space-between;
-            padding: 16px 0;
-        }
-        @media (min-width: 768px) {
-            header {
-                flex-direction: row;
-            }
-        }
-        header h1 {
-            font-size: 24px;
-            font-weight: bold;
-            color: #4f46e5; /* Indigo */
-            margin-bottom: 16px;
-        }
-        @media (min-width: 768px) {
-            header h1 {
-                margin-bottom: 0;
-            }
-        }
-        header nav {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-top: 16px;
-        }
-        @media (min-width: 768px) {
-            header nav {
-                flex-direction: row;
-                margin-top: 0;
-            }
-        }
-        header nav a {
-            color: #6b7280; /* Gray */
-            text-decoration: none;
-            margin: 0 16px;
-        }
-        header nav a:hover {
-            color: #3b82f6; /* Blue */
-        }
-        .hero-section {
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            padding: 24px;
-            text-align: center;
-            margin-bottom: 24px;
-        }
-        .hero-section h2 {
-            font-size: 28px;
-            font-weight: bold;
-            color: #4f46e5; /* Indigo */
-            margin-bottom: 8px;
-        }
-        .hero-section p {
-            color: #6b7280; /* Gray */
-            margin-bottom: 16px;
-        }
-        .cta-button {
-            background-color: #f97316; /* Orange */
-            color: #fff;
-            padding: 10px 20px;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: 500;
-        }
-        .cta-button:hover {
-            background-color: #ed8936; /* Darker Orange */
-        }
-        .stories-section, .news-section, .projects-section {
-            padding: 24px 0;
-        }
-        .stories-section h2, .news-section h2, .projects-section h2 {
-            font-size: 24px;
-            font-weight: bold;
-            color: #4f46e5; /* Indigo */
-            text-align: center;
-            margin-bottom: 24px;
-        }
-        .story-card, .news-card, .project-card {
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            padding: 16px;
-            margin-bottom: 16px;
-        }
-        .story-card img, .news-card img, .project-card img {
-            border-radius: 8px;
-            margin-bottom: 16px;
-            width: 100%;
-            height: auto;
-        }
-        .story-card h3, .news-card h3, .project-card h3 {
-            font-size: 18px;
-            font-weight: bold;
-            color: #1e40af; /* Darker Blue */
-            margin-bottom: 8px;
-        }
-        .story-card p, .news-card p, .project-card p {
-            color: #6b7280; /* Gray */
-        }
-        .story-card .author {
-            font-size: 14px;
-            color: #9ca3af; /* Gray */
-        }
-        .news-card ul {
-            list-style-type: disc;
-            padding-left: 20px;
-        }
-        .news-card li{
-             margin-bottom: 8px;
-        }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Responsive Portfolio</title>
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="header">
+      <a class="logo" href="#">Portfolio</a>
+      <i class="bx bx-menu" id="menu-icon"></i>
+      <nav class="navbar">
+        <a href="#home" class="active">Home</a>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
 
-        .projects-section h3{
-            color: #16a34a; /* Green */
-        }
-
-        .contact-section {
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            padding: 24px;
-            margin-bottom: 24px;
-        }
-        .contact-section h2 {
-            font-size: 24px;
-            font-weight: bold;
-            color: #4f46e5; /* Indigo */
-            text-align: center;
-            margin-bottom: 24px;
-        }
-        .contact-form {
-            max-width: 400px;
-            margin: 0 auto;
-        }
-        .contact-form div {
-            margin-bottom: 16px;
-        }
-        .contact-form label {
-            display: block;
-            font-size: 14px;
-            font-weight: bold;
-            color: #374151; /* Dark Gray */
-            margin-bottom: 8px;
-        }
-        .contact-form input, .contact-form textarea {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #d1d5db; /* Gray Border */
-            border-radius: 5px;
-            font-size: 16px;
-        }
-        .contact-form textarea {
-            height: 120px;
-        }
-        .contact-form button {
-            background-color: #f97316; /* Orange */
-            color: #fff;
-            padding: 10px 20px;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: 500;
-            width: 100%;
-            border: none;
-            font-size: 16px;
-            cursor: pointer;
-        }
-        .contact-form button:hover {
-            background-color: #ed8936; /* Darker Orange */
-        }
-        footer {
-            background-color: #4a5568; /* Dark Gray */
-            color: #fff;
-            padding: 16px;
-            text-align: center;
-            border-radius: 8px;
-            margin-top: 24px;
-        }
-
-        @media (min-width: 768px) {
-            .grid-container {
-                display: flex;
-                flex-wrap: wrap;
-                justify-content: space-between;
-            }
-            .grid-item {
-                width: 48%;
-            }
-        }
-        @media (min-width: 1024px) {
-            .grid-item {
-                width: 32%;
-            }
-        }
-    </style>
-</head>
-<body class="bg-blue-50">
-    <div class="container">
-        <header>
-            <h1>Empowering Urban Children</h1>
-            <nav>
-                <a href="#stories">Stories</a>
-                <a href="#news">News</a>
-                <a href="#projects">Projects</a>
-                <a href="#contact">Contact</a>
-            </nav>
-        </header>
-
-        <section class="hero-section">
-            <h2>Education, Nutrition, and Safety for a Brighter Tomorrow</h2>
-            <p>Our mission is to empower urban children through education, ensure their nutritional needs are met, and provide a safe environment for them to thrive.</p>
-            <a href="#" class="cta-button">Read More</a>
-        </section>
-
-        <section id="stories" class="stories-section">
-            <h2>Stories of Hope and Transformation</h2>
-            <div class="grid-container">
-                <div class="grid-item story-card">
-                    <img src="https://placehold.co/400x300" alt="Story 1">
-                    <p>"A young girl's life changed with access to education..."</p>
-                    <p class="author">By Jane Smith</p>
-                </div>
-                <div class="grid-item story-card">
-                    <img src="https://placehold.co/400x300" alt="Story 2">
-                    <p>"A community united to provide better nutrition..."</p>
-                    <p class="author">By Mark Johnson</p>
-                </div>
+    <!-- Home Section Design -->
+     <section class="home" id="home">
+        <div class="home-content">
+            <h3>Hello It's me</h3>
+            <h1>Srijan Khadka</h1>
+            <h3>
+                and I am <span>Kotlin Multiplatform Developer</span>
+            </h3>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.Magnam facere iusto accusamus, ab nulla voluptatem! 
+            </p>
+            <div class="social-media">
+                <a href="#"><i class="bx bxl-twitter"></i></a>
+                <a href="#"><i class="bx bxl-linkedin"></i></a>
+                <a href="#"><i class="bx bxl-github"></i></a>
             </div>
-        </section>
 
-        <section id="news" class="news-section">
-            <h2>News and Blogs</h2>
-            <div class="grid-container">
-                <div class="grid-item news-card">
-                    <h3>Nurturing Young Minds</h3>
-                    <p>Updates on our education programs and their impact.</p>
-                     <ul>
-                       <li>New School Building Opened</li>
-                       <li>Teacher Training Program Launched</li>
-                     </ul>
-                </div>
-                <div class="grid-item news-card">
-                    <h3>Building a Brighter Future</h3>
-                    <p>Insights into our initiatives for children's well-being.</p>
-                    <ul>
-                      <li>Clean Water Initiative</li>
-                      <li>Healthcare Access Improved</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
+            <a href="#" class="btn">Hire Me</a>
+        </div>
 
-        <section id="projects" class="projects-section">
-            <h2>Projects</h2>
-            <div class="grid-container">
-                <div class="grid-item project-card">
-                    <h3>Seeds of Change</h3>
-                    <p>Transforming lives through education.</p>
-                </div>
-                <div class="grid-item project-card">
-                    <h3>Project Hope Rising</h3>
-                    <p>Providing nutrition for growth.</p>
-                </div>
-                <div class="grid-item project-card">
-                    <h3>Future Leaders Initiative</h3>
-                    <p>Creating safe spaces for children.</p>
-                </div>
-            </div>
-        </section>
+        <div class="home-img">
+            <img src="me.png" alt="portfolio image" height="400px">
+        </div>
+     </section>
 
-        <section id="contact" class="contact-section">
-            <h2>Contact Us</h2>
-            <form class="contact-form">
-                <div>
-                    <label for="name">Name:</label>
-                    <input type="text" id="name" name="name">
-                </div>
-                <div>
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" name="email">
-                </div>
-                <div>
-                    <label for="message">Message:</label>
-                    <textarea id="message" name="message"></textarea>
-                </div>
-                <button type="submit">Send Message</button>
-            </form>
-        </section>
-
-        <footer>
-            <p>© 2024 Empowering Urban Children. All rights reserved.</p>
-        </footer>
-    </div>
-
-    <script>
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-    </script>
-</body>
+    <script src="script.js"></script>
+  </body>
 </html>
